@@ -53,7 +53,7 @@ export function getHeroImages(): HeroImages {
     const slot = slots[i];
     const preferred = PREFERRED_FILES[i];
 
-    let filename =
+    const filename =
       resolveByFilename(preferred, allFiles) ??
       allFiles.find((f) => !used.has(f)) ??
       allFiles[0];
