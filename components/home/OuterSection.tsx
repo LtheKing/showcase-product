@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getMostLovedItems } from "@/data/most-loved";
+import { getOuterSectionItems } from "@/data/outer-section";
 import { ScrollFadeIn } from "@/components/ui/ScrollFadeIn";
 
 function isLocalSrc(src: string) {
   return src.startsWith("/");
 }
 
-export function MostLovedSection() {
-  const items = getMostLovedItems();
+export function OuterSection() {
+  const items = getOuterSectionItems();
 
   if (items.length === 0) {
     return null;
@@ -24,19 +24,19 @@ export function MostLovedSection() {
           : "grid-cols-2 md:grid-cols-4";
 
   return (
-    <section className="bg-white px-4 py-14 md:px-8 md:py-20 lg:px-10">
+    <section className="bg-[#f5f4f2] px-4 py-14 md:px-8 md:py-20 lg:px-10">
       <div className="mx-auto w-full max-w-[1920px]">
         <ScrollFadeIn>
           <h2 className="text-center text-[11px] font-semibold tracking-[0.28em] text-black md:text-xs">
-            MOST LOVED
+            OUTER
           </h2>
         </ScrollFadeIn>
 
         <div className={`mt-10 grid gap-3 md:gap-4 lg:mt-12 lg:gap-5 ${gridClass}`}>
           {items.map((item, index) => (
-            <ScrollFadeIn key={item.title} delay={index * 90} y={20}>
+            <ScrollFadeIn key={`${item.title}-${item.image}`} delay={index * 90} y={20}>
               <Link href={item.href} className="group block">
-                <div className="relative aspect-[3/4] overflow-hidden bg-[#f0eeec]">
+                <div className="relative aspect-[3/4] overflow-hidden bg-[#ebe8e5]">
                   <Image
                     src={item.image}
                     alt={item.alt}

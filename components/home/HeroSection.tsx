@@ -1,7 +1,16 @@
 import Link from "next/link";
+import type { Product } from "@/data/products";
 import { getProductByHeroSlot } from "@/data/products";
 import { getHeroImages } from "@/lib/hero-images";
+import { imageFileFromSrc, productDetailHref, resolveInitialColorId } from "@/lib/product-link";
 import { HeroProductTile } from "./HeroProductTile";
+
+function heroProductHref(product: Product, imageSrc: string) {
+  const imageFile = imageFileFromSrc(imageSrc);
+  if (!imageFile) return `/products/${product.slug}`;
+  const colorId = resolveInitialColorId(product, null, imageFile);
+  return productDetailHref(product.slug, { color: colorId, image: imageFile });
+}
 
 function CollectionStamp() {
   return (
@@ -33,7 +42,7 @@ export function HeroSection() {
         <div className="relative min-h-[85vw] w-full md:min-h-[calc(100vh-7.5rem)]">
           {leftProduct && (
             <HeroProductTile
-              href={`/products/${leftProduct.slug}`}
+              href={heroProductHref(leftProduct, HERO_IMAGES.left.src)}
               src={HERO_IMAGES.left.src}
               alt={HERO_IMAGES.left.alt}
               priority
@@ -60,7 +69,7 @@ export function HeroSection() {
               <div className="relative aspect-[5/4] w-full overflow-visible border-[8px] border-white bg-white shadow-sm md:aspect-[4/5] lg:border-[10px]">
                 {centerProduct && (
                   <HeroProductTile
-                    href={`/products/${centerProduct.slug}`}
+                    href={heroProductHref(centerProduct, HERO_IMAGES.center.src)}
                     src={HERO_IMAGES.center.src}
                     alt={HERO_IMAGES.center.alt}
                     priority
@@ -78,7 +87,7 @@ export function HeroSection() {
         <div className="relative min-h-[85vw] w-full md:min-h-[calc(100vh-7.5rem)]">
           {rightProduct && (
             <HeroProductTile
-              href={`/products/${rightProduct.slug}`}
+              href={heroProductHref(rightProduct, HERO_IMAGES.right.src)}
               src={HERO_IMAGES.right.src}
               alt={HERO_IMAGES.right.alt}
               priority
@@ -89,11 +98,11 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* CTA — pojok kanan bawah seperti Alo */}
-      <div className="pointer-events-none absolute bottom-6 right-5 z-20 md:bottom-8 md:right-8 lg:bottom-10 lg:right-12">
+      {/* CTA — mobile: centered di bawah hero; desktop: pojok kanan bawah seperti Alo */}
+      <div className="flex justify-center bg-[#f5f4f2] px-6 pb-10 pt-8 md:contents">
         <Link
           href="/products/instant-jersey-plum"
-          className="pointer-events-auto inline-flex min-w-[150px] items-center justify-center border border-black bg-white px-7 py-3 text-[10px] font-semibold tracking-[0.18em] text-black transition hover:bg-black hover:text-white md:min-w-[160px] md:px-8 md:py-3.5 md:text-[11px]"
+          className="z-20 inline-flex w-full max-w-[280px] items-center justify-center border border-black bg-white px-7 py-3.5 text-[10px] font-semibold tracking-[0.18em] text-black transition hover:bg-black hover:text-white sm:w-auto sm:min-w-[200px] md:absolute md:bottom-8 md:right-8 md:w-auto md:max-w-none md:min-w-[160px] md:px-8 md:py-3.5 md:text-[11px] lg:bottom-10 lg:right-12"
         >
           SHOP NEW ARRIVALS
         </Link>

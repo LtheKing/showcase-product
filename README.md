@@ -33,7 +33,9 @@ Klik gambar di homepage untuk ke halaman detail masing-masing.
 - `components/layout/SiteHeader.tsx` — logo hijabfirst, nav HIJAB/GAMIS/INNER/ACCESSORIES
 - `components/home/HeroSection.tsx` — hero produk hijab
 - `components/home/MostLovedSection.tsx` — grid 4 kolom "Most Loved"
-
+- `components/home/OuterSection.tsx` — grid "Outer" (gambar prefix `outer` di `img/`)
+- `components/home/CategoryCarousel.tsx` — carousel kategori (mobile, di bawah header)
+    
 ## Gambar produk
 
 Letakkan foto di folder **`img/`**. Setelah menambah gambar baru, **wajib** jalankan:

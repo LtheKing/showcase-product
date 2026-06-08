@@ -19,3 +19,41 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
+
+/* Carousel kategori — scroll horizontal tanpa scrollbar */
+.category-carousel-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+}
+
+.category-carousel-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Scroll fade-in / fade-out (ulang saat scroll naik-turun) */
+.scroll-fade-in {
+  opacity: 0;
+  transform: translateY(var(--fade-y, 28px));
+  transition:
+    opacity var(--fade-duration, 700ms) ease-in-out,
+    transform var(--fade-duration, 700ms) ease-in-out;
+  will-change: opacity, transform;
+}
+
+.scroll-fade-in--visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: var(--fade-delay, 0ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-fade-in,
+  .scroll-fade-in--visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    transition-delay: 0ms;
+  }
+}

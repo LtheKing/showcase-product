@@ -9,6 +9,7 @@ import { StarRating } from "./StarRating";
 
 type ProductDetailViewProps = {
   product: Product;
+  initialColorId: string;
 };
 
 function isLocalSrc(src: string) {
@@ -65,9 +66,11 @@ function resolveColorImage(
   return { src, alt };
 }
 
-export function ProductDetailView({ product }: ProductDetailViewProps) {
+export function ProductDetailView({ product, initialColorId }: ProductDetailViewProps) {
   const defaultColor =
-    product.colors.find((c) => c.available) ?? product.colors[0];
+    product.colors.find((c) => c.id === initialColorId) ??
+    product.colors.find((c) => c.available) ??
+    product.colors[0];
   const defaultSize =
     product.sizes.find((s) => s.available) ?? product.sizes[0];
 

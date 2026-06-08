@@ -16,3 +16,14 @@ Gambar diurutkan **alfabetis/numerik** (`hijab1`, `hijab2`, …):
 | 4 | Most Loved #4 |
 
 Tidak perlu nama `hijab3.webp` — cukup 4+ file dengan nama berurutan.
+
+### Section OUTER (homepage)
+
+File dengan prefix **`outer`** otomatis muncul di section OUTER:
+
+```
+outer1.webp
+outer2.webp
+outer3.webp
+...
+```

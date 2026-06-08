@@ -91,12 +91,12 @@ function buildProducts(): Product[] {
       price: 159_000,
       rating: 4.8,
       reviewCount: 94,
-      images: primaryImage(1, "Hijab chiffon square mauve"),
+      images: primaryImageFile("hijab2", "Hijab chiffon square mauve"),
       colors: buildProductColors(
         [
-          { id: "mauve", name: "Mauve", hex: "#9a7b8a", group: "core", available: true, imageIndex: 1 },
-          { id: "ivory", name: "Ivory", hex: "#f5f0e8", group: "core", available: true, imageIndex: 2 },
-          { id: "black", name: "Black", hex: "#1a1a1a", group: "core", available: true, imageIndex: 3 },
+          { id: "mauve", name: "Mauve", hex: "#9a7b8a", group: "core", available: true, imageFile: "hijab3" },
+          { id: "ivory", name: "Ivory", hex: "#f5f0e8", group: "core", available: true, imageFile: "hijab2" },
+          { id: "black", name: "Black", hex: "#1a1a1a", group: "core", available: true, imageFile: "hijab12" },
           { id: "dusty-rose", name: "Dusty Rose", hex: "#c9a0a0", group: "limited", available: true, imageIndex: 4 },
           { id: "olive", name: "Olive", hex: "#6b705c", group: "limited", available: false, imageIndex: 5 },
         ],
@@ -115,13 +115,14 @@ function buildProducts(): Product[] {
       price: 219_000,
       rating: 5,
       reviewCount: 67,
-      images: primaryImage(2, "Hijab pashmina instant cream"),
+      images: primaryImageFile("hijab3", "Hijab pashmina instant cream"),
       colors: buildProductColors(
         [
-          { id: "cream", name: "Cream", hex: "#e8dfd4", group: "core", available: true, imageIndex: 2 },
-          { id: "camel", name: "Camel", hex: "#b8956b", group: "core", available: true, imageIndex: 3 },
-          { id: "charcoal", name: "Charcoal", hex: "#4a4a4a", group: "core", available: true, imageIndex: 4 },
-          { id: "terracotta", name: "Terracotta", hex: "#c17c5c", group: "limited", available: true, imageIndex: 5 },
+          { id: "plum", name: "Plum", hex: "#5c3d52", group: "core", available: true, imageFile: "hijab3" },
+          { id: "cream", name: "Cream", hex: "#e8dfd4", group: "core", available: true, imageFile: "hijab1" },
+          { id: "camel", name: "Camel", hex: "#b8956b", group: "core", available: true, imageFile: "hijab4" },
+          { id: "charcoal", name: "Charcoal", hex: "#4a4a4a", group: "core", available: true, imageFile: "hijab5" },
+          { id: "terracotta", name: "Terracotta", hex: "#c17c5c", group: "limited", available: true, imageFile: "hijab6" },
           { id: "forest", name: "Forest", hex: "#3d5c4a", group: "limited", available: false, imageIndex: 6 },
         ],
         2

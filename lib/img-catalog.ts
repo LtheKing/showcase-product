@@ -21,6 +21,14 @@ export function listCatalogImages(): string[] {
   return readDir(PUBLIC_DIR);
 }
 
+/** Gambar dengan prefix nama file, mis. "outer" → outer1.webp, outer-2.jpg */
+export function listImagesByPrefix(prefix: string): string[] {
+  const normalized = prefix.toLowerCase();
+  return listCatalogImages().filter((f) =>
+    f.toLowerCase().startsWith(normalized)
+  );
+}
+
 export function imgSrc(filename: string): string {
   return `/img/${encodeURIComponent(filename)}`;
 }
